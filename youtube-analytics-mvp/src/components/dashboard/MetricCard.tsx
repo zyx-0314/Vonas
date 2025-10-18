@@ -65,10 +65,10 @@ export function MetricCard({
         )}
         
         {detailsLink && (
-          <div className="mt-3 pt-3 border-t border-gray-100">
+          <div className="mt-3 pt-3 border-gray-100 border-t">
             <Link 
               href={detailsLink}
-              className="flex items-center gap-1 text-sm text-sandy-yellow hover:text-sandy-yellow/80 transition-colors"
+              className="flex items-center gap-1 text-sandy-yellow hover:text-sandy-yellow/80 text-sm transition-colors"
             >
               <span>View Details</span>
               <ExternalLink className="w-3 h-3" />

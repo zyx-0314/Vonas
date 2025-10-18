@@ -185,8 +185,8 @@ export default function AnalyticsPage() {
           {icon}
         </div>
         <div>
-          <p className="text-sm font-medium text-gray-600">{title}</p>
-          <p className="text-2xl font-bold text-ebony-clay">{value}</p>
+          <p className="font-medium text-gray-600 text-sm">{title}</p>
+          <p className="font-bold text-ebony-clay text-2xl">{value}</p>
         </div>
       </div>
     </button>
@@ -195,15 +195,15 @@ export default function AnalyticsPage() {
   const ProgressBar = ({ label, percentage, count }: { label: string; percentage: number; count?: number }) => (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <span className="text-sm font-medium text-gray-700">{label}</span>
+        <span className="font-medium text-gray-700 text-sm">{label}</span>
         <div className="text-right">
-          <span className="text-sm font-semibold text-ebony-clay">{percentage}%</span>
-          {count && <span className="text-xs text-gray-500 block">{count.toLocaleString()}</span>}
+          <span className="font-semibold text-ebony-clay text-sm">{percentage}%</span>
+          {count && <span className="block text-gray-500 text-xs">{count.toLocaleString()}</span>}
         </div>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-2">
+      <div className="bg-gray-200 rounded-full w-full h-2">
         <div 
-          className="bg-sandy-yellow h-2 rounded-full transition-all duration-500" 
+          className="bg-sandy-yellow rounded-full h-2 transition-all duration-500" 
           style={{ width: `${percentage}%` }}
         ></div>
       </div>
@@ -214,12 +214,12 @@ export default function AnalyticsPage() {
     switch (selectedMetric) {
       case 'views':
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="gap-6 grid grid-cols-1 lg:grid-cols-2">
             {/* Traffic Sources */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Globe className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Traffic Sources</h3>
+                <Globe className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Traffic Sources</h3>
               </div>
               <div className="space-y-4">
                 {analyticsData.views.sources.map((source, index) => (
@@ -234,10 +234,10 @@ export default function AnalyticsPage() {
             </div>
 
             {/* Age Demographics */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Users className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Age Demographics</h3>
+                <Users className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Age Demographics</h3>
               </div>
               <div className="space-y-4">
                 {analyticsData.views.age_groups.map((group, index) => (
@@ -252,10 +252,10 @@ export default function AnalyticsPage() {
             </div>
 
             {/* Device Types */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Monitor className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Device Types</h3>
+                <Monitor className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Device Types</h3>
               </div>
               <div className="space-y-4">
                 {analyticsData.views.devices.map((device, index) => (
@@ -270,10 +270,10 @@ export default function AnalyticsPage() {
             </div>
 
             {/* Geographic Locations */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <MapPin className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Top Locations</h3>
+                <MapPin className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Top Locations</h3>
               </div>
               <div className="space-y-4">
                 {analyticsData.views.locations.map((location, index) => (
@@ -291,19 +291,19 @@ export default function AnalyticsPage() {
 
       case 'subscribers':
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="gap-6 grid grid-cols-1 lg:grid-cols-2">
             {/* Subscriber Timeline */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Calendar className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Subscriber Growth</h3>
+                <Calendar className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Subscriber Growth</h3>
               </div>
               <div className="space-y-4">
                 {analyticsData.subscribers.timeline.map((period, index) => (
-                  <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                  <div key={index} className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
                     <span className="font-medium text-gray-700">{period.period}</span>
                     <div className="text-right">
-                      <div className="text-green-600 font-semibold">+{period.gained}</div>
+                      <div className="font-semibold text-green-600">+{period.gained}</div>
                       <div className="text-red-500 text-sm">-{period.lost}</div>
                     </div>
                   </div>
@@ -312,33 +312,33 @@ export default function AnalyticsPage() {
             </div>
 
             {/* Content Sources */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Play className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Top Subscriber Sources</h3>
+                <Play className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Top Subscriber Sources</h3>
               </div>
               <div className="space-y-3">
                 {analyticsData.subscribers.content_sources.map((content, index) => (
                   <div key={index} className="flex justify-between items-center">
-                    <span className="text-sm text-gray-700 flex-1 truncate">{content.content}</span>
-                    <span className="font-semibold text-ebony-clay ml-4">{content.subscribers}</span>
+                    <span className="flex-1 text-gray-700 text-sm truncate">{content.content}</span>
+                    <span className="ml-4 font-semibold text-ebony-clay">{content.subscribers}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Subscriber Demographics */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:col-span-2">
+            <div className="lg:col-span-2 bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Users className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Subscriber Demographics</h3>
+                <Users className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Subscriber Demographics</h3>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
                 {analyticsData.subscribers.demographics.map((demo, index) => (
-                  <div key={index} className="text-center p-4 bg-gray-50 rounded-lg">
-                    <div className="text-2xl font-bold text-ebony-clay">{demo.percentage}%</div>
-                    <div className="text-sm text-gray-600">{demo.range}</div>
-                    <div className="text-xs text-gray-500 mt-1">{demo.count.toLocaleString()}</div>
+                  <div key={index} className="bg-gray-50 p-4 rounded-lg text-center">
+                    <div className="font-bold text-ebony-clay text-2xl">{demo.percentage}%</div>
+                    <div className="text-gray-600 text-sm">{demo.range}</div>
+                    <div className="mt-1 text-gray-500 text-xs">{demo.count.toLocaleString()}</div>
                   </div>
                 ))}
               </div>
@@ -348,26 +348,26 @@ export default function AnalyticsPage() {
 
       case 'watchTime':
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="gap-6 grid grid-cols-1 lg:grid-cols-2">
             {/* Watch Time by Location */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <MapPin className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Watch Time by Location</h3>
+                <MapPin className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Watch Time by Location</h3>
               </div>
               <div className="space-y-4">
                 {analyticsData.watchTime.locations.map((location, index) => (
                   <div key={index} className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-gray-700">{location.country}</span>
+                      <span className="font-medium text-gray-700 text-sm">{location.country}</span>
                       <div className="text-right">
-                        <span className="text-sm font-semibold text-ebony-clay">{location.percentage}%</span>
-                        <span className="text-xs text-gray-500 block">{(location.minutes / 60).toFixed(0)}h</span>
+                        <span className="font-semibold text-ebony-clay text-sm">{location.percentage}%</span>
+                        <span className="block text-gray-500 text-xs">{(location.minutes / 60).toFixed(0)}h</span>
                       </div>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-gray-200 rounded-full w-full h-2">
                       <div 
-                        className="bg-sandy-yellow h-2 rounded-full transition-all duration-500" 
+                        className="bg-sandy-yellow rounded-full h-2 transition-all duration-500" 
                         style={{ width: `${location.percentage}%` }}
                       ></div>
                     </div>
@@ -377,10 +377,10 @@ export default function AnalyticsPage() {
             </div>
 
             {/* Duration Breakdown */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Clock className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Watch Duration</h3>
+                <Clock className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Watch Duration</h3>
               </div>
               <div className="space-y-4">
                 {analyticsData.watchTime.duration_breakdown.map((duration, index) => (
@@ -395,20 +395,20 @@ export default function AnalyticsPage() {
             </div>
 
             {/* Peak Viewing Hours */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:col-span-2">
+            <div className="lg:col-span-2 bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <BarChart3 className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Peak Viewing Hours</h3>
+                <BarChart3 className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Peak Viewing Hours</h3>
               </div>
-              <div className="grid grid-cols-5 gap-4">
+              <div className="gap-4 grid grid-cols-5">
                 {analyticsData.watchTime.peak_hours.map((hour, index) => (
                   <div key={index} className="text-center">
-                    <div className="bg-gray-100 rounded-lg p-4 mb-2">
-                      <div className="text-lg font-bold text-ebony-clay">{hour.hour}</div>
-                      <div className="text-sm text-gray-600">{(hour.minutes / 60).toFixed(0)}h</div>
+                    <div className="bg-gray-100 mb-2 p-4 rounded-lg">
+                      <div className="font-bold text-ebony-clay text-lg">{hour.hour}</div>
+                      <div className="text-gray-600 text-sm">{(hour.minutes / 60).toFixed(0)}h</div>
                     </div>
                     <div 
-                      className="bg-sandy-yellow rounded-full mx-auto transition-all duration-500" 
+                      className="bg-sandy-yellow mx-auto rounded-full transition-all duration-500" 
                       style={{ 
                         height: `${(hour.minutes / 95000) * 80}px`,
                         width: '8px',
@@ -424,26 +424,26 @@ export default function AnalyticsPage() {
 
       case 'revenue':
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="gap-6 grid grid-cols-1 lg:grid-cols-2">
             {/* Revenue Sources */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <DollarSign className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Revenue Sources</h3>
+                <DollarSign className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Revenue Sources</h3>
               </div>
               <div className="space-y-4">
                 {analyticsData.revenue.sources.map((source, index) => (
                   <div key={index} className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-gray-700">{source.type}</span>
+                      <span className="font-medium text-gray-700 text-sm">{source.type}</span>
                       <div className="text-right">
-                        <span className="text-sm font-semibold text-ebony-clay">{source.percentage}%</span>
-                        <span className="text-xs text-gray-500 block">${source.amount}</span>
+                        <span className="font-semibold text-ebony-clay text-sm">{source.percentage}%</span>
+                        <span className="block text-gray-500 text-xs">${source.amount}</span>
                       </div>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-gray-200 rounded-full w-full h-2">
                       <div 
-                        className="bg-green-400 h-2 rounded-full transition-all duration-500" 
+                        className="bg-green-400 rounded-full h-2 transition-all duration-500" 
                         style={{ width: `${source.percentage}%` }}
                       ></div>
                     </div>
@@ -453,14 +453,14 @@ export default function AnalyticsPage() {
             </div>
 
             {/* Monthly Trend */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <TrendingUp className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Monthly Revenue</h3>
+                <TrendingUp className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Monthly Revenue</h3>
               </div>
               <div className="space-y-3">
                 {analyticsData.revenue.monthly_trend.map((month, index) => (
-                  <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                  <div key={index} className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
                     <span className="font-medium text-gray-700">{month.month}</span>
                     <span className="font-bold text-green-600">${month.amount}</span>
                   </div>
@@ -469,16 +469,16 @@ export default function AnalyticsPage() {
             </div>
 
             {/* Top Performing Videos */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:col-span-2">
+            <div className="lg:col-span-2 bg-white shadow-sm p-6 border border-gray-100 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Play className="h-5 w-5 text-sandy-yellow" />
-                <h3 className="text-lg font-semibold text-ebony-clay">Top Revenue Generating Videos</h3>
+                <Play className="w-5 h-5 text-sandy-yellow" />
+                <h3 className="font-semibold text-ebony-clay text-lg">Top Revenue Generating Videos</h3>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                 {analyticsData.revenue.top_performing_videos.map((video, index) => (
-                  <div key={index} className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
-                    <span className="text-sm text-gray-700 flex-1 truncate">{video.title}</span>
-                    <span className="font-bold text-green-600 ml-4">${video.revenue}</span>
+                  <div key={index} className="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
+                    <span className="flex-1 text-gray-700 text-sm truncate">{video.title}</span>
+                    <span className="ml-4 font-bold text-green-600">${video.revenue}</span>
                   </div>
                 ))}
               </div>
@@ -499,41 +499,41 @@ export default function AnalyticsPage() {
         <div className="space-y-6">
           {/* Header */}
           <div>
-            <h1 className="font-freight-neo-pro text-3xl font-bold text-ebony-clay">
+            <h1 className="font-freight-neo-pro font-bold text-ebony-clay text-3xl">
               Analytics Dashboard
             </h1>
-            <p className="text-gray-600 mt-2">
+            <p className="mt-2 text-gray-600">
               Detailed breakdown of your channel performance and audience insights
             </p>
           </div>
 
           {/* Metric Selection Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             <MetricCard
               title="Total Views"
               value="524K"
-              icon={<Eye className="h-6 w-6" />}
+              icon={<Eye className="w-6 h-6" />}
               isSelected={selectedMetric === 'views'}
               onClick={() => setSelectedMetric('views')}
             />
             <MetricCard
               title="Subscribers"
               value="13.8K"
-              icon={<Users className="h-6 w-6" />}
+              icon={<Users className="w-6 h-6" />}
               isSelected={selectedMetric === 'subscribers'}
               onClick={() => setSelectedMetric('subscribers')}
             />
             <MetricCard
               title="Watch Time"
               value="965K min"
-              icon={<Clock className="h-6 w-6" />}
+              icon={<Clock className="w-6 h-6" />}
               isSelected={selectedMetric === 'watchTime'}
               onClick={() => setSelectedMetric('watchTime')}
             />
             <MetricCard
               title="Revenue"
               value="$2,890"
-              icon={<DollarSign className="h-6 w-6" />}
+              icon={<DollarSign className="w-6 h-6" />}
               isSelected={selectedMetric === 'revenue'}
               onClick={() => setSelectedMetric('revenue')}
             />
