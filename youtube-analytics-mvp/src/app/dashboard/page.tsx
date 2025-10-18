@@ -94,6 +94,7 @@ export default function Dashboard() {
                 change={metrics.changes?.views}
                 positive={metrics.changes?.views?.startsWith('+')}
                 icon={<Eye className="w-6 h-6" />}
+                detailsLink="/analytics"
               />
               
               <MetricCard
@@ -102,6 +103,7 @@ export default function Dashboard() {
                 change={metrics.changes?.subscribers}
                 positive={metrics.changes?.subscribers?.startsWith('+')}
                 icon={<Users className="w-6 h-6" />}
+                detailsLink="/analytics"
               />
               
               <MetricCard
@@ -110,6 +112,7 @@ export default function Dashboard() {
                 change={metrics.changes?.watchTime}
                 positive={metrics.changes?.watchTime?.startsWith('+')}
                 icon={<Clock className="w-6 h-6" />}
+                detailsLink="/analytics"
               />
               
               <MetricCard
@@ -118,6 +121,7 @@ export default function Dashboard() {
                 change={metrics.changes?.revenue}
                 positive={metrics.changes?.revenue?.startsWith('+')}
                 icon={<DollarSign className="w-6 h-6" />}
+                detailsLink="/analytics"
               />
             </div>
           )}

@@ -7,10 +7,12 @@
  *   - change?: string
  *   - positive?: boolean
  *   - icon?: React.ReactNode
+ *   - detailsLink?: string
  */
 
+import Link from 'next/link';
 import { Card } from '@/components/Card';
-import { TrendingUp, TrendingDown } from 'lucide-react';
+import { TrendingUp, TrendingDown, ExternalLink } from 'lucide-react';
 
 interface MetricCardProps {
   title: string;
@@ -18,6 +20,7 @@ interface MetricCardProps {
   change?: string;
   positive?: boolean;
   icon?: React.ReactNode;
+  detailsLink?: string;
 }
 
 export function MetricCard({
@@ -26,6 +29,7 @@ export function MetricCard({
   change,
   positive,
   icon,
+  detailsLink,
 }: MetricCardProps) {
   return (
     <Card>
@@ -57,6 +61,18 @@ export function MetricCard({
             <span className="font-freight-neo-pro">
               {change} from last month
             </span>
+          </div>
+        )}
+        
+        {detailsLink && (
+          <div className="mt-3 pt-3 border-t border-gray-100">
+            <Link 
+              href={detailsLink}
+              className="flex items-center gap-1 text-sm text-sandy-yellow hover:text-sandy-yellow/80 transition-colors"
+            >
+              <span>View Details</span>
+              <ExternalLink className="w-3 h-3" />
+            </Link>
           </div>
         )}
       </div>

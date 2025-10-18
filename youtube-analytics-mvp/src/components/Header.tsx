@@ -37,6 +37,12 @@ export function Header() {
                   Dashboard
                 </Link>
                 <Link 
+                  href="/analytics" 
+                  className="font-medium text-ebony-clay hover:text-sandy-yellow transition-colors"
+                >
+                  Analytics
+                </Link>
+                <Link 
                   href="/content" 
                   className="font-medium text-ebony-clay hover:text-sandy-yellow transition-colors"
                 >
