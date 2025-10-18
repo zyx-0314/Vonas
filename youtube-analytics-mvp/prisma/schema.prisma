@@ -14,10 +14,12 @@ model User {
   id            String    @id @default(cuid())
   email         String    @unique
   name          String?
-  googleId      String    @unique
+  password      String?   // For local admin users
+  googleId      String?   @unique // Make optional for local users
   accessToken   String?
   refreshToken  String?
   channelId     String?
+  isAdmin       Boolean   @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   channelMetrics ChannelMetrics[]
