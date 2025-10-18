@@ -479,13 +479,6 @@ export default function MonetizationPage() {
                 Track your revenue streams and discover new monetization opportunities
               </p>
             </div>
-            
-            <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 bg-ebony-clay hover:bg-ebony-clay/90 px-4 py-2 rounded-lg text-white transition-colors">
-                <Settings className="w-4 h-4" />
-                Settings
-              </button>
-            </div>
           </div>
 
           {/* Navigation Tabs */}

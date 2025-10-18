@@ -127,22 +127,11 @@ export default function IdeasPage() {
     }
   }, [notepadContent]);
 
-  // Show loading while checking authentication
-  if (authLoading) {
-    return (
-      <div className="flex justify-center items-center bg-whitesmoke min-h-screen">
-        <div className="font-freight-neo-pro text-ebony-clay">Loading...</div>
-      </div>
-    );
-  }
-
-  // Redirect if not authenticated (prevent flash)
-  if (!user) {
-    return null;
-  }
-
-  // Helper functions
-  const generateId = () => `idea_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  // Helper functions with useCallback - MUST be before conditional returns
+  const generateId = useCallback(() => 
+    `idea_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`, 
+    []
+  );
 
   const getAllTags = useCallback(() => {
     const tagSet = new Set<string>();
@@ -193,6 +182,20 @@ export default function IdeasPage() {
 
     return filtered;
   }, [ideas, searchTerm, selectedTags, filterPriority, filterStatus, sortBy, sortOrder]);
+
+  // Show loading while checking authentication
+  if (authLoading) {
+    return (
+      <div className="flex justify-center items-center bg-whitesmoke min-h-screen">
+        <div className="font-freight-neo-pro text-ebony-clay">Loading...</div>
+      </div>
+    );
+  }
+
+  // Redirect if not authenticated (prevent flash)
+  if (!user) {
+    return null;
+  }
 
   const addIdea = () => {
     if (!newIdeaTitle.trim()) return;
