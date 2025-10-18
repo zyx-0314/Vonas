@@ -43,10 +43,28 @@ export function Header() {
                   Analytics
                 </Link>
                 <Link 
+                  href="/ideas" 
+                  className="font-medium text-ebony-clay hover:text-sandy-yellow transition-colors"
+                >
+                  Ideas
+                </Link>
+                <Link 
                   href="/content" 
                   className="font-medium text-ebony-clay hover:text-sandy-yellow transition-colors"
                 >
                   Content Analysis
+                </Link>
+                <Link 
+                  href="/comments" 
+                  className="font-medium text-ebony-clay hover:text-sandy-yellow transition-colors"
+                >
+                  Comments
+                </Link>
+                <Link 
+                  href="/monetization" 
+                  className="font-medium text-ebony-clay hover:text-sandy-yellow transition-colors"
+                >
+                  Monetization
                 </Link>
               </nav>
             )}

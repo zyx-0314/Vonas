@@ -9,7 +9,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { ArrowUpDown, ExternalLink, Eye, TrendingUp, Calendar, Clock } from 'lucide-react';
+import { ArrowUpDown, ExternalLink, Eye, TrendingUp, Calendar, Clock, MessageCircle } from 'lucide-react';
 
 interface Video {
   id: string;
@@ -263,10 +263,19 @@ export function ContentTable({ videos, filters }: ContentTableProps) {
                   </div>
                 </td>
                 <td className="px-6 py-4">
-                  <button className="inline-flex items-center gap-2 hover:bg-gray-100 px-3 py-1.5 rounded-lg font-medium text-ebony-clay text-xs transition-colors">
-                    <ExternalLink className="w-3 h-3" />
-                    View Details
-                  </button>
+                  <div className="flex gap-2">
+                    <button className="inline-flex items-center gap-2 hover:bg-gray-100 px-3 py-1.5 rounded-lg font-medium text-ebony-clay text-xs transition-colors">
+                      <ExternalLink className="w-3 h-3" />
+                      View Details
+                    </button>
+                    <button 
+                      onClick={() => window.location.href = `/comments?videoId=${video.id}`}
+                      className="inline-flex items-center gap-2 hover:bg-gray-100 px-3 py-1.5 rounded-lg font-medium text-gray-600 text-xs transition-colors"
+                    >
+                      <MessageCircle className="w-3 h-3" />
+                      Comments
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

@@ -55,7 +55,7 @@ export default function Home() {
               <Link href="/login">
                 <Button variant="primary">Get Started</Button>
               </Link>
-              <Link href="/mood-board">
+              <Link href="/about-project">
                 <Button variant="secondary">View Design System</Button>
               </Link>
             </div>
@@ -106,7 +106,9 @@ export default function Home() {
               Connect your YouTube account and start tracking your performance with our minimal, 
               techno-inspired analytics dashboard.
             </p>
-            <Button variant="primary">Connect YouTube Account</Button>
+              <Link href="/login">
+                <Button variant="primary">Connect YouTube Account</Button>
+              </Link>
           </div>
         </div>
       </main>

@@ -9,7 +9,7 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { Eye, TrendingUp, Calendar, Clock, ExternalLink, Play } from 'lucide-react';
+import { Eye, TrendingUp, Calendar, Clock, ExternalLink, Play, MessageCircle } from 'lucide-react';
 
 interface Video {
   id: string;
@@ -232,11 +232,20 @@ export function VideoGallery({ videos, filters }: VideoGalleryProps) {
                   </div>
                 )}
 
-                {/* Action Button */}
-                <button className="flex justify-center items-center gap-2 bg-gray-50 hover:bg-sandy-yellow px-3 py-2 rounded-lg w-full font-medium text-ebony-clay hover:text-ebony-clay text-xs transition-colors">
-                  <ExternalLink className="w-3 h-3" />
-                  View Analysis
-                </button>
+                {/* Action Buttons */}
+                <div className="space-y-2">
+                  <button className="flex justify-center items-center gap-2 bg-gray-50 hover:bg-sandy-yellow px-3 py-2 rounded-lg w-full font-medium text-ebony-clay hover:text-ebony-clay text-xs transition-colors">
+                    <ExternalLink className="w-3 h-3" />
+                    View Analysis
+                  </button>
+                  <button 
+                    onClick={() => window.location.href = `/comments?videoId=${video.id}`}
+                    className="flex justify-center items-center gap-2 bg-white hover:bg-gray-50 px-3 py-2 border border-gray-200 rounded-lg w-full font-medium text-gray-700 hover:text-ebony-clay text-xs transition-colors"
+                  >
+                    <MessageCircle className="w-3 h-3" />
+                    Comments
+                  </button>
+                </div>
               </div>
             </div>
           ))}
