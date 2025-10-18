@@ -1,13 +1,19 @@
 /**
  * Component: components/Header.tsx
- * Purpose: Main navigation header with project name and login button.
+ * Purpose: Main navigation header with project name and user authentication.
  * Props: None
  */
 
+'use client';
+
 import Link from 'next/link';
-import { LoginButton } from './LoginButton';
+import { useAuth } from '@/lib/auth-context';
+import { UserDropdown } from './UserDropdown';
+import { Button } from './Button';
 
 export function Header() {
+  const { user, loading } = useAuth();
+
   return (
     <header className="bg-whitesmoke border-ebony-clay/10 border-b w-full">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -19,9 +25,19 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Login Button */}
+          {/* Authentication Area */}
           <div className="flex items-center">
-            <LoginButton />
+            {loading ? (
+              <div className="text-ebony-clay/60 text-sm">Loading...</div>
+            ) : user ? (
+              <UserDropdown />
+            ) : (
+              <Link href="/login">
+                <Button variant="primary">
+                  Login
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
