@@ -1,9 +1,38 @@
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
+import { useAuth } from '@/lib/auth-context';
 
 export default function Home() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  // Redirect authenticated users to dashboard
+  useEffect(() => {
+    if (!loading && user) {
+      router.push('/dashboard');
+    }
+  }, [user, loading, router]);
+
+  // Show loading while checking authentication
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center bg-whitesmoke min-h-screen">
+        <div className="font-freight-neo-pro text-ebony-clay">Loading...</div>
+      </div>
+    );
+  }
+
+  // Don't render landing page if user is authenticated (prevents flash)
+  if (user) {
+    return null;
+  }
   return (
     <div className="flex flex-col bg-whitesmoke min-h-screen">
       <Header />
@@ -23,8 +52,12 @@ export default function Home() {
               Track your channel performance with clean, modern interfaces and powerful insights.
             </p>
             <div className="flex sm:flex-row flex-col justify-center gap-4">
-              <Button variant="primary">Get Started</Button>
-              <Button variant="secondary">View Design System</Button>
+              <Link href="/login">
+                <Button variant="primary">Get Started</Button>
+              </Link>
+              <Link href="/mood-board">
+                <Button variant="secondary">View Design System</Button>
+              </Link>
             </div>
           </div>
 

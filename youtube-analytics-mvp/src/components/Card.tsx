@@ -17,7 +17,7 @@ interface CardProps {
 
 export function Card({ title, children, className = '' }: CardProps) {
   return (
-    <div className={`bg-whitesmoke border border-ebony-clay/20 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 ${className}`}>
+    <div className={`bg-whitesmoke border border-ebony-clay/20 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer ${className}`}>
       {title && (
         <h3 className="mb-4 font-orbi font-semibold text-ebony-clay text-lg">
           {title}
