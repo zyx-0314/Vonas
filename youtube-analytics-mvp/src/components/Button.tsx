@@ -27,7 +27,7 @@ export function Button({
   disabled = false,
   className = ''
 }: ButtonProps) {
-  const baseClasses = 'px-6 py-2 font-freight-neo-pro font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseClasses = 'cursor-pointer px-6 py-2 font-freight-neo-pro font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantClasses = {
     primary: 'bg-sandy-yellow text-ebony-clay hover:bg-sandy-yellow/90 focus:ring-sandy-yellow border border-sandy-yellow',

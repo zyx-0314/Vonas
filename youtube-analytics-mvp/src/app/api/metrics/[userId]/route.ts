@@ -17,9 +17,12 @@ const prisma = new PrismaClient();
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { userId: string } }
+  { params }: { params: Promise<{ userId: string }> }
 ) {
   try {
+    // Await params in Next.js 15
+    const { userId } = await params;
+    
     // Authenticate request
     const userPayload = authenticateRequest(request);
     
@@ -29,8 +32,6 @@ export async function GET(
         { status: 401 }
       );
     }
-
-    const { userId } = params;
 
     // Check if the authenticated user is requesting their own data or is admin
     if (userPayload.userId !== userId && !userPayload.isAdmin) {

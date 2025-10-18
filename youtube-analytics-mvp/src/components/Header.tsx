@@ -25,8 +25,27 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Authentication Area */}
-          <div className="flex items-center">
+          {/* Navigation & Authentication Area */}
+          <div className="flex items-center gap-6">
+            {/* Navigation Menu (only show when authenticated) */}
+            {user && (
+              <nav className="hidden md:flex items-center gap-6">
+                <Link 
+                  href="/dashboard" 
+                  className="font-medium text-ebony-clay hover:text-sandy-yellow transition-colors"
+                >
+                  Dashboard
+                </Link>
+                <Link 
+                  href="/content" 
+                  className="font-medium text-ebony-clay hover:text-sandy-yellow transition-colors"
+                >
+                  Content Analysis
+                </Link>
+              </nav>
+            )}
+
+            {/* Authentication */}
             {loading ? (
               <div className="text-ebony-clay/60 text-sm">Loading...</div>
             ) : user ? (
