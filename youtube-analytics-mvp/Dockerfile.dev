@@ -1,0 +1,30 @@
+# Development Dockerfile for hot reloading with Docker Compose watch
+FROM node:20-alpine
+
+# Install dependencies for development
+RUN apk add --no-cache libc6-compat
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY prisma ./prisma/
+
+# Install dependencies
+RUN npm ci
+
+# Generate Prisma client
+RUN npx prisma generate
+
+# Copy source code
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Set development environment
+ENV NODE_ENV=development
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Start development server with hot reload
+CMD ["npm", "run", "dev"]
