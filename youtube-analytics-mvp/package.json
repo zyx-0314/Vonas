@@ -42,7 +42,7 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@types/passport": "^1.0.17",
     "@types/passport-google-oauth20": "^2.0.16",
-    "axios": "^1.12.2",
+    "axios": "^1.13.5",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
